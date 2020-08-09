@@ -20,7 +20,7 @@ bot
   console.log(payload);
   chat.say(
     `Salam sejahtera dan selamat bergabung.
-    Nama saya Nilam. 
+    Nama saya Jamkrida Sulsel. 
     Ketik "help" kalau butuh bantuan ya...`);
 })
 .hear(['help'], (payload, chat) => {
@@ -28,10 +28,14 @@ bot
 		text: 'Apa yang bisa dibantu?',
 		buttons: [
 			{ type: 'postback', title: 'Kunjungi Website', payload: 'HELP_VISIT_SITE' },
-			{ type: 'postback', title: 'Kunjungi Grup KPPDI', payload: 'HELP_VISIT_GROUP' },
-			{ type: 'postback', title: 'Chat dengan Admin', payload: 'HELP_CHAT_WITH_ADMIN' }
+			{ type: 'postback', title: 'Ajukan Surety Bond', payload: 'HELP_AJUAN' }
 		]
 	});
+})
+.on('postback', (payload, chat, data) => {
+  console.log(payload);
+  console.log(data);
+  chat.say(`Bentar ya...`);
 })
 .hear([
   'hello', 
@@ -41,7 +45,10 @@ bot
   'hallo',
 ], (payload, chat) => {
   console.log('The user said "hello", "hi", "hey", or "hey there"');
-  chat.say(`Hi..! Apa kabar?`);
+  chat.say(`Hi..! Apa kabar?
+    Salam sejahtera dan selamat bergabung.
+    Nama saya Jamkrida Sulsel. 
+    Ketik "help" kalau butuh bantuan ya...`);
 })
 .hear([
   /(apa )?kabar/i,  
