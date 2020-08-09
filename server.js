@@ -15,6 +15,7 @@ bot.on('message', (payload, chat) => {
 });
 
 bot.start();
+console.log('Started...');
 
 
 /* 
