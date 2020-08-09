@@ -28,10 +28,10 @@ module.exports = {
     //
     const confirmAjuan = (convo)=>{
       convo.ask({
-        text: `Apakah data berikut sudah benar?
-          Jenis Jaminan: ${convo.get('jenis')}
-          Perusahaan   : ${convo.get('principal')}
-          Pekerjaaan   : ${convo.get('proyek')}`,
+        text: `Apakah data berikut sudah benar?`+
+          `Jenis Jaminan: ${convo.get('jenis')}`+
+          `Perusahaan   : ${convo.get('principal')}`+
+          `Pekerjaaan   : ${convo.get('proyek')}`,
         quickReplies: ['Benar', 'Koreksi']
       }, (payload, convo) => {
         const confirm = payload.message.text == 'Benar';

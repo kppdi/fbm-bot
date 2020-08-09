@@ -20,9 +20,9 @@ bot
   console.log(data);
   console.log(payload);
   chat.say(
-    `Salam sejahtera dan selamat bergabung.
-    Nama saya Jamkrida Sulsel. 
-    Ketik "help" kalau butuh bantuan ya...`);
+    `Salam sejahtera dan selamat bergabung.`+
+    `Nama saya Jamkrida Sulsel. `+
+    `Ketik "help" kalau butuh bantuan ya...`);
 })
 .hear(['help'], (payload, chat) => {
 	chat.say({
@@ -61,10 +61,10 @@ bot
   'hallo',
 ], (payload, chat) => {
   chat.getUserProfile().then((user) => {
-    chat.say(`Hi ${user.first_name}! Apa kabar?
-      Salam sejahtera dan selamat bergabung.
-      Nama saya Jamkrida Sulsel. 
-      Ketik "help" kalau butuh bantuan ya...`);
+    chat.say(`Hi ${user.first_name}! Apa kabar?`+
+      `Salam sejahtera dan selamat bergabung.`+
+      `Nama saya Jamkrida Sulsel. `+
+      `Ketik "help" kalau butuh bantuan ya...`);
   });
 })
 .hear([
