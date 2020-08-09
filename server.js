@@ -43,7 +43,7 @@ bot
 
   let kw = payload.postback.payload;
   let title = payload.postback.title;
-  chat.say(title);
+  // chat.say(title);
   switch (kw){
     case 'HELP_VISIT_SITE':
       break;

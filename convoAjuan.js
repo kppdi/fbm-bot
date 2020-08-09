@@ -29,9 +29,9 @@ module.exports = {
     const confirmAjuan = (convo)=>{
       convo.ask({
         text: `Apakah data berikut sudah benar?
-          Jenis Jaminan: ${jenis}
-          Perusahaan   : ${principal}
-          Pekerjaaan   : ${proyek}`,
+          Jenis Jaminan: ${convo.get('jenis')}
+          Perusahaan   : ${convo.get('principal')}
+          Pekerjaaan   : ${convo.get('proyek')}`,
         quickReplies: ['Benar', 'Koreksi']
       }, (payload, convo) => {
         const confirm = payload.message.text == 'Benar';
@@ -50,7 +50,7 @@ module.exports = {
       }, (payload, convo) => {
         const jenis = payload.message.text;
         convo.set('jenis', jenis);
-        convo.say(`Oh, your name is ${jenis}`).then(() => askNamaPrincipal(convo));
+        convo.say(`Oke, Jaminan ${jenis}`).then(() => askNamaPrincipal(convo));
       }, [], {typing: true});
     });
   }
