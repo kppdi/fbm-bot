@@ -9,9 +9,26 @@ const bot = new BootBot({
   appSecret: process.env.FB_APP_SECRET
 });
 
-bot.on('message', (payload, chat) => {
+/* bot.on('message', (payload, chat) => {
   const text = payload.message.text;
   chat.say(`Echo: ${text}`);
+}); */
+
+bot.hear([
+  'hello', 
+  'hi', 
+  /hey( there)?/i,
+  /(apa )?kabar/i,
+  'halo',
+  'hallo',
+], (payload, chat) => {
+  console.log('The user said "hello", "hi", "hey", or "hey there"');
+  chat.say(`Hi..! Apa kabar?`);
+})
+.hear([
+  /(apa )?kabar/i,  
+], (payload, chat) => {
+  chat.say(`Kabar baik. Bagaimana dengan Anda?`);
 });
 
 bot.start(process.env.PORT);
