@@ -33,9 +33,24 @@ bot
 	});
 })
 .on('postback', (payload, chat, data) => {
-  console.log(payload);
-  console.log(data);
-  chat.say(`Bentar ya...`);
+  /* payload: {
+    sender: { id: '3165810610162814' },
+    recipient: { id: '1294226957325949' },
+    timestamp: 1596980247869,
+    postback: { title: 'Kunjungi Website', payload: 'HELP_VISIT_SITE' }
+  } */
+
+  let kw = payload.postback.payload;
+  let title = payload.postback.title;
+  chat.say(title);
+  switch (kw){
+    case 'HELP_VISIT_SITE':
+      break;
+    case 'HELP_AJUAN':
+      convoAjuan.start(chat);
+      break;
+  }
+
 })
 .hear([
   'hello', 
@@ -44,11 +59,12 @@ bot
   'halo',
   'hallo',
 ], (payload, chat) => {
-  console.log('The user said "hello", "hi", "hey", or "hey there"');
-  chat.say(`Hi..! Apa kabar?
-    Salam sejahtera dan selamat bergabung.
-    Nama saya Jamkrida Sulsel. 
-    Ketik "help" kalau butuh bantuan ya...`);
+  chat.getUserProfile().then((user) => {
+    chat.say(`Hi ${user.first_name}! Apa kabar?
+      Salam sejahtera dan selamat bergabung.
+      Nama saya Jamkrida Sulsel. 
+      Ketik "help" kalau butuh bantuan ya...`);
+  });
 })
 .hear([
   /(apa )?kabar/i,  
