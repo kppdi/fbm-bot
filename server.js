@@ -1,6 +1,7 @@
 'use strict';
 const BootBot = require('bootbot');
 // const config = require('config');
+const convoAjuan = require('./convoAjuan');
 
 
 const bot = new BootBot({
